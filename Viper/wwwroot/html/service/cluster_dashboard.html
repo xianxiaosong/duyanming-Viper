@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>集群面板</title>
+</head>
+<body>
+    <div>
+        <div style="padding-top: 0px;">
+            <div id="cluster_dashboard" style="display:none">
+                <el-card v-for="s,index in services" :class="{box_card:!isMobile,mobile_box_card:isMobile}">
+                    <div slot="header" class="clearfix">
+                        <span><b>{{s.Nickname}}</b></span>
+                        <div style="margin-bottom:10px;">
+                            <el-button v-on:click="resourceDetail(s.Nickname)" style="float: right;margin-left:5px; padding: 3px 0" type="text">资源监控</el-button>
+                            <el-button v-on:click="openDetail(s.Nickname)" style="float: right; margin-left:5px; padding: 3px 0" type="text">API详情</el-button>
+                        </div>
+                    </div>
+                    <div class="text item">
+                        服务Name：<b>{{s.Nickname }}</b>
+                    </div>
+                    <div class="text item">
+                        服务Host：<b>{{s.Host }}</b>
+                    </div>
+                    <div class="text item">
+                        服务Port：<b>{{s.Port }}</b>
+                    </div>
+                    <div class="text item">
+                        服务Timeout：<b>{{s.Timeout }}(毫秒)</b>
+                    </div>
+                    <div class="text item">
+                        服务Weight：<b>{{s.Weight }}</b>
+                    </div>
+                    <div class="text item">
+                        服务Tag：
+                        <el-tag style="margin-left:2px;" hit="true" size="mini" :type="getRoundType()" v-for="t,index in s.Tags">{{t}}</el-tag>
+                    </div>
+                </el-card>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- 先引入 Vue -->
+<script src="../../js/vue.min.js"></script>
+<link href="../../css/element-ui-index.css" rel="stylesheet" />
+<!-- 引入组件库 -->
+<script src="../../js/element-ui-index.js"></script>
+<script src="../../js/jquery.min.js"></script>
+
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>-->
+<!-- 引入样式 -->
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.14.0/lib/theme-chalk/index.css">-->
+<link rel="stylesheet" href="../../css/common.css">
+<!-- 引入组件库 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/element-ui@2.14.0/lib/index.js"></script>-->
+
+<!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>-->
+<script src="../../js/base.js"></script>
+<script src="cluster_dashboard.js"></script>
+<style>
+    .text {
+        font-size: 14px;
+    }
+
+    .item {
+        margin-bottom: 18px;
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+        display: table;
+        content: "";
+    }
+
+    .clearfix:after {
+        clear: left
+    }
+
+    .box_card {
+        margin: 10px 10px;
+        width: -webkit-calc(32% - 22px);
+        width: -moz-calc(32% - 22px);
+        width: calc(32% - 22px);
+        /*float: left;*/
+        min-width: 280px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .mobile_box_card {
+        margin: 10px 10px;
+        width: -webkit-calc(47% - 22px);
+        width: -moz-calc(47% - 22px);
+        width: calc(47% - 22px);
+        min-width: 280px;
+        /*float: left;*/
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+</html>

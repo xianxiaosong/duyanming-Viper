@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>$(DeveloperBuildCoreTfms)</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Anno.Rpc.Server" Version="1.7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Anno.Plugs.DLockService\Anno.Plugs.DLockService.csproj" />
+    <ProjectReference Include="..\Anno.Plugs.LogicService\Anno.Plugs.LogicService.csproj" />
+    <ProjectReference Include="..\Anno.Plugs.MonitorService\Anno.Plugs.MonitorService.csproj" />
+    <ProjectReference Include="..\Anno.Plugs.ViperService\Anno.Plugs.ViperService.csproj" />
+    <ProjectReference Include="..\Anno.Plugs.TraceService\Anno.Plugs.TraceService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Anno.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="viperService.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="viperService.sh">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

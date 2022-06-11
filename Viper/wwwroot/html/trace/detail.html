@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>调用链明细</title>
+    <link href="../../js/lib/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" />
+    <link href="../../js/lib/ligerUI/skins/Gray2014/css/all.css" rel="stylesheet" />
+    <link href="../../js/lib/ligerUI/skins/ligerui-icons.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/jquery.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>-->
+    <script src="../../js/lib/ligerUI/js/ligerui.min.js"></script>
+    <script src="../../js/base.js"></script>
+    <script src="detail.js"></script>
+    <style type="text/css">
+        .l-tree .l-tree-icon-none img {
+            width: 16px;
+            height: 16px;
+            margin: 3px;
+        }
+
+        input {
+            width: 196px;
+        }
+
+        .l-form-buttons li {
+            display: inline-block;
+            width: 22%;
+        }
+
+        .l-form-buttons li div {
+            margin: 0 auto;
+        }
+        .l-grid-hd-row {
+            color: #909399;
+            font-weight: 500;
+            height:36px;
+            line-height:36px;
+            background-color: #FFF !important;
+        }
+        .l-grid-header{
+            background-color: #FFF !important;
+            background:#FFF !important;
+        }
+        .l-panel-topbar{
+            background-color: #FFF !important;
+            background:#FFF !important;
+        }
+        .l-grid-row-alt .l-grid-row-cell{
+            background: #FAFAFA !important;
+        }
+        .l-grid-row {
+            color: #606266;
+        }
+        .l-grid-row-cell-inner {
+            line-height: 45px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            //布局
+            $("#layout1").ligerLayout({
+                height: '100%',
+                heightDiff: -5,
+                space: 4
+            });
+            _initform();
+        });
+    </script>
+</head>
+<body>
+    <div id="layout1" class="l-layout" style="height: 100%;">
+        <div class="l-layout-center" style="width:99.3%; left:1px; top: 1px; height: 100%;">
+            <div position="center" title="" class="l-layout-content">
+
+                <div>
+                    <div id="funTree" style="margin: 0; padding: 0">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
